@@ -1,0 +1,58 @@
+@startuml Diagrama Caso de Uso
+
+
+actor Estudiante as EST
+actor Usuario as USU
+actor Administrador as ADMIN
+
+usecase "1. Registrar sesion de estudio" as UC1
+usecase "2. Consultar Sesion de Estudio" as UC2
+usecase "3. Cancelar Sesion de Estudio" as UC3
+usecase "4. Consultar Cantidad de Monedas" as UC4
+usecase "5. Consultar Tienda" as UC5
+usecase "6. Registrar amigos" as UC6
+usecase "7. Consultar amigos" as UC7
+usecase "8. Eliminar amigos" as UC8
+usecase "9. Consultar mascotas" as UC9
+usecase "10. Consultar estudiantes" as UC10
+usecase "11. Eliminar estudiantes" as UC11
+usecase "12. Registrar compra en tienda" as UC12
+usecase "13. Iniciar sesion" as UC13
+usecase "14. Cambiar nombre de usuario" as UC14
+usecase "15. Cerrar sesion" as UC15
+usecase "16. Cambiar contraseña" as UC16
+usecase "17. Registrar mascota para sesion" as UC17
+usecase "18. Consultar Tamagochi" as UC18
+usecase "19. Eliminar Tamagochi" as UC19
+usecase "20. Registrar Tamagochi" as UC20
+usecase "21. Verificar sesion de estudio" as UC21
+
+ADMIN <|-up- USU
+EST <|-down- USU
+
+
+EST -up-> UC1
+EST -up-> UC2
+EST -up-> UC3
+EST -up-> UC4
+EST -right-> UC5
+EST -down-> UC6
+EST -down-> UC7
+EST -down-> UC8
+EST -down-> UC9
+
+USU -left-> UC15
+USU -up-> UC14
+USU -up-> UC13
+USU -down-> UC16
+
+ADMIN -down-> UC10
+ADMIN -down-> UC18
+ADMIN -down-> UC20
+
+UC11 .d.> UC10 : extend
+UC19 .d.> UC18 : extend
+UC17 .u.> UC1 : extend
+UC12 .u.> UC5 : extend
+
+@enduml
